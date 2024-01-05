@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
 <style>
 body {
@@ -11,6 +9,6 @@ sans-serif;-;font-size: 22px;
 
 <h1>ass</h1>
 </body>
-</html>
+
 
 
