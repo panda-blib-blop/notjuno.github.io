@@ -1,14 +1,2 @@
-<head>
-<style>
-body {
-font-family:'times new roman  times,
-sans-serif;-;font-size: 22px;
-}
-</style>
-<body>
-
-<h1>ass</h1>
-</body>
-
-
-
+<h1 align="center"> Animation 1 </h1>
+<h3 align="center"><a>https://panda-blib-blop.github.io/notjuno.github.io/untitledg.lottie.html </h3>
