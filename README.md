@@ -1,1 +1,1 @@
-## (a)notjuno.github.io
+## notjuno.github.io
