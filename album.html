@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Album</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap" rel="stylesheet">
+<style>
+    body {
+  margin: 0;
+  background-image:url("backgrund.svg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #B58622;
+  opacity:0;
+  transition: opacity .9s;
+  overflow: hidden;
+}
+ html {
+  cursor: url("normal.svg"), auto
+}
+    .bottom-svg {
+     z-index: 0;
+      position:fixed;
+     bottom: 20px;
+     transform: scale(105%) translateY(10%)
+    }
+    .blue-section {
+      width: 100%;
+      height: 12%;
+      background-color: #0D0E21;
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      z-index: 2;
+      box-shadow: 0 8px 0px rgba(0, 0, 5, 0.3);
+    }
+     .blue-section-text {
+      font-size: calc(4vw + 4vh);
+      font-family: 'Montserrat Subrayada', sans-serif;
+      background-color: #B58622;
+      color: transparent;
+      text-shadow: 3px 2px 0px #ECB236;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      text-align:center;
+    }
+    .blue-section img {
+     position:relative;
+     height:75%;
+     left:-240%;
+     cursor: url("pointer.svg"), auto
+    }
+
+    img[src="Figaro Nr 1.jpg"]{
+      position:relative;
+      width: 35%;
+      transition: left 0.4s ease-in-out;
+      left: 0;
+      padding-left:3%;
+    }
+    img[src="Figaro Nr 2.jpg"]{
+      position:relative;
+      width: 19.5%;
+      transition: left 0.4s ease-in-out;
+      left: 0;
+      padding-left:3%;
+    }
+     img[src="Figaro Nr 3.jpg"]{
+      position:relative;
+      width: 16%;
+      transition: left 0.4s ease-in-out;
+      left: 0;
+      padding-left:3%;
+    }
+    img[src="Figaro Nr 4.jpg"]{
+      position:relative;
+      width: 19.8%;
+      transition: left 0.4s ease-in-out;
+      left: 0;
+      padding-left:3%;
+    }
+       img[src="Figaro Nr 5.jpg"]{
+      position:relative;
+      width: 19.8%;
+      transition: left 0.4s ease-in-out;
+      left: 0;
+      padding-left:3%;
+    }
+    .left {
+    position:absolute;
+    z-index:1;
+    top:25%;
+    right:55%;
+    height: 50%;
+    width: 25%;
+    background-color: #d62828;
+    border-radius: 25%;
+    display: inline-block;
+    box-shadow:0px 10px 0px 0px #8A1919;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: url("pointer.svg"), auto
+    }
+.left:hover {
+  transform: translate(0, 10px);
+  box-shadow:0px 0px 0px 0px #0d0e21;
+}
+.left:active  {
+  transform: translate(0, 20px);
+  box-shadow:0px -10px 0px 0px #0d0e21 ;
+}
+       .left img{
+     position:relative;
+     margin-left:-10px;
+     width:100%;
+     height:100%;
+     cursor: url("pointer.svg"), auto
+      }
+        .right {
+    position:absolute;
+    z-index:1;
+    top:25%;
+    right:20%;
+    height: 50%;
+    width: 25%;
+    background-color: #d62828;
+    border-radius: 25%;
+    display: inline-block;
+    box-shadow:0px 10px 0px 0px #8A1919;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: url("pointer.svg"), auto
+    }
+.right:hover {
+  transform: translate(0, 10px);
+  box-shadow:0px 0px 0px 0px #0d0e21;
+}
+.right:active  {
+  transform: translate(0, 20px);
+  box-shadow:0px -10px 0px 0px #0d0e21 ;
+}
+       .right img{
+     position:relative;
+     margin-left:10px;
+     width:100%;
+     height:100%;
+     cursor: url("pointer.svg"), auto
+      }
+       .container1 {
+     border-radius:7%;
+     z-index:1;
+     position:absolute;
+     top:78%;
+     width:20%;
+     height:20%;
+     background-color: #2D2D56;
+     box-shadow:0px 10px 0px 0px #0d0e21 ;
+      }
+
+    </style>
+</head>
+<body>
+<div class="blue-section">
+    <span onclick="transitionToPage('index.html')">
+    <img src="Arrow left.svg" alt="Arrow left" >
+    </span>
+    <div class="blue-section-text">Figaros Photo Album</div>
+</div>
+<img class="box" src="Figaro Nr 1.jpg" alt="Figaro Nr 1" >
+<img class="box" src="Figaro Nr 2.jpg" alt="Figaro Nr 2" >
+<img class="box" src="Figaro Nr 3.jpg" alt="Figaro Nr 3" >
+<img class="box" src="Figaro Nr 4.jpg" alt="Figaro Nr 4" >
+<img class="box" src="Figaro Nr 5.jpg" alt="Figaro Nr 5" >
+<div class="container1">
+<span class="left" onclick="moveLeft()">
+<img src="Arrow PhotoL.svg" alt="Arrow PhotoL">
+</span>
+<span class="right" onclick="moveRight()">
+<img src="Arrow PhotoR.svg" alt="Arrow PhotoR">
+</span>
+</div>
+<div class="bottom-svg">
+    <img src="Group 1.svg" alt="Group 1 SVG">
+</div>
+<script>
+    window.transitionToPage = function(href) {
+    document.querySelector('body').style.opacity = 0
+    setTimeout(function() {
+    window.location.href = href
+    }, 800)
+    }
+
+    document.addEventListener('DOMContentLoaded', function(event) {
+    document.querySelector('body').style.opacity = 1
+    })
+
+    function moveLeft() {
+        var boxes = document.querySelectorAll('.box');
+        boxes.forEach(function(box) {
+            var currentPosition = parseFloat(window.getComputedStyle(box).getPropertyValue('left'));
+            var newPosition = currentPosition - -250; // Adjust the value as you need
+            box.style.left = newPosition + 'px';
+        });
+    }
+        function moveRight() {
+        var boxes = document.querySelectorAll('.box');
+        boxes.forEach(function(box) {
+            var currentPosition = parseFloat(window.getComputedStyle(box).getPropertyValue('left'));
+            var newPosition = currentPosition - 250; // Adjust the value as you need
+            box.style.left = newPosition + 'px';
+        });
+    }
+</script>
+</body>
+</html>
