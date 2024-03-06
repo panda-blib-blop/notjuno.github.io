@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>News</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap" rel="stylesheet">
+<style>
+  body {
+background-image:url("backgrund.svg");
+display: flex;
+align-items: center;
+justify-content: center;
+height: 400vh;
+background-color: #0D0E21;
+opacity:0;
+transition: opacity .9s;
+}
+ html {
+  cursor: url("normal.svg"), auto
+}
+    .bottom-svg {
+     left:-2%;
+     z-index: 0;
+      position:relative;
+     bottom: -49%;
+     transform: scale(105%) translateY(10%)
+    }
+    .blue-section {
+      width: 100%;
+      height: 12%;
+      background-color: #0D0E21;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      z-index: 2;
+      box-shadow: 0 8px 0px rgba(0, 0, 5, 0.3);
+    }
+     .blue-section-text {
+      font-size: calc(4vw + 4vh);
+      font-family: 'Montserrat Subrayada', sans-serif;
+      background-color: #B58622;
+      color: transparent;
+      text-shadow: 3px 2px 0px #ECB236;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      text-align:center;
+    }
+    .blue-section img {
+     position:absolute;
+     height:75%;
+     left:1.5%;
+     top:10%;
+     cursor: url("pointer.svg"), auto
+    }
+    .square {
+     position:relative;
+     height: 101%;
+     width: 2%;
+     left:5%;
+     background-color: #3b3b69;
+     display: grid;
+     justify-content: end;
+    }
+  .circle {
+    margin-left: 30%;
+    margin-right: -50%;
+    height: 60px;
+    width: 60px;
+    background-color: #1B1B28;
+    border-radius: 50%;
+    border: 10px solid #3b3b69;
+    }
+</style>
+</head>
+<body>
+<div class="blue-section">
+    <span onclick="transitionToPage('index.html')">
+    <img src="Arrow left.svg" alt="Arrow left" >
+    </span>
+  <div class="blue-section-text">Figaro News</div>
+</div>
+<div class="square">
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+</div>
+<div class="bottom-svg">
+  <img src="Group 1.svg" alt="Group 1 SVG">
+</div>
+<script>
+  window.transitionToPage = function(href) {
+document.querySelector('body').style.opacity = 0
+setTimeout(function() {
+window.location.href = href
+}, 800)
+}
+
+document.addEventListener('DOMContentLoaded', function(event) {
+document.querySelector('body').style.opacity = 1
+})
+</script>
+</body>
+</html>
