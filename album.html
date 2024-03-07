@@ -20,7 +20,7 @@
   overflow: hidden;
 }
  html {
-  cursor: url("normal.svg"), auto
+  cursor: url("normal.svg"), auto;
 }
     .bottom-svg {
      z-index: 0;
@@ -58,44 +58,79 @@
      cursor: url("pointer.svg"), auto
     }
 
-    img[src="Figaro Nr 1.jpg"]{
+    img[src="Photos/Figaro Nr 1.jpg"]{
       position:relative;
       width: 35%;
       transition: left 0.4s ease-in-out;
       left: 0;
       padding-left:3%;
     }
-    img[src="Figaro Nr 2.jpg"]{
+    img[src="Photos/Figaro Nr 2.jpg"]{
       position:relative;
       width: 19.5%;
       transition: left 0.4s ease-in-out;
       left: 0;
       padding-left:3%;
     }
-     img[src="Figaro Nr 3.jpg"]{
+     img[src="Photos/Figaro Nr 3.jpg"]{
       position:relative;
       width: 16%;
       transition: left 0.4s ease-in-out;
       left: 0;
       padding-left:3%;
     }
-    img[src="Figaro Nr 4.jpg"]{
+    img[src="Photos/Figaro Nr 4.jpg"]{
       position:relative;
       width: 19.8%;
       transition: left 0.4s ease-in-out;
       left: 0;
       padding-left:3%;
     }
-       img[src="Figaro Nr 5.jpg"]{
+       img[src="Photos/Figaro Nr 5.jpg"]{
       position:relative;
       width: 19.8%;
       transition: left 0.4s ease-in-out;
       left: 0;
       padding-left:3%;
     }
-           img[src="AAAA.png"]{
+           img[src="Photos/AAAA.png"]{
       position:relative;
-      width: 19.8%;
+      width: 27%;
+      transition: left 0.4s ease-in-out;
+      left: 0;
+      padding-left:3%;
+    }
+           img[src="Photos/Figaro Nr 6.jpg"]{
+      position:relative;
+      width: 35.4%;
+      transition: left 0.4s ease-in-out;
+      left: 0;
+      padding-left:3%;
+    }
+           img[src="Photos/Figaro Nr 7.jpeg"]{
+      position:relative;
+      width: 35.4%;
+      transition: left 0.4s ease-in-out;
+      left: 0;
+      padding-left:3%;
+    }
+           img[src="Photos/Figaro Nr 8.jpeg"]{
+      position:relative;
+      width: 35.4%;
+      transition: left 0.4s ease-in-out;
+      left: 0;
+      padding-left:3%;
+    }
+           img[src="Photos/Figaro Nr 9.jpeg"]{
+      position:relative;
+      width: 20%;
+      transition: left 0.4s ease-in-out;
+      left: 0;
+      padding-left:3%;
+    }
+           img[src="Photos/Figaro Nr 10.jpeg"]{
+      position:relative;
+      width: 35.4%;
       transition: left 0.4s ease-in-out;
       left: 0;
       padding-left:3%;
@@ -107,12 +142,12 @@
     right:55%;
     height: 50%;
     width: 25%;
-    background-color: #ff00ff;
+    background-color: #d62828;
     border-radius: 25%;
     display: inline-block;
     box-shadow:0px 10px 0px 0px #8A1919;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    cursor: url("pointer.svg"), auto
+    cursor: url("pointer.svg"), pointer;
     }
 .left:hover {
   transform: translate(0, 10px);
@@ -141,7 +176,7 @@
     display: inline-block;
     box-shadow:0px 10px 0px 0px #8A1919;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    cursor: url("pointer.svg"), auto
+    cursor: url("pointer.svg"), pointer;
     }
 .right:hover {
   transform: translate(0, 10px);
@@ -156,7 +191,7 @@
      margin-left:10px;
      width:100%;
      height:100%;
-     cursor: url("pointer.svg"), auto
+     cursor: url("pointer.svg"), pointer;
       }
        .container1 {
      border-radius:7%;
@@ -178,18 +213,23 @@
     </span>
     <div class="blue-section-text">Figaros Photo Album</div>
 </div>
-<img class="box" src="Figaro Nr 1.jpg" alt="Figaro Nr 1" >
-<img class="box" src="Figaro Nr 2.jpg" alt="Figaro Nr 2" >
-<img class="box" src="Figaro Nr 3.jpg" alt="Figaro Nr 3" >
-<img class="box" src="Figaro Nr 4.jpg" alt="Figaro Nr 4" >
-<img class="box" src="Figaro Nr 5.jpg" alt="Figaro Nr 5" >
-<img class="box" src="AAAA.png" alt="AAAA" >
+<img class="box" src="Photos/Figaro Nr 1.jpg" alt="Figaro Nr 1" >
+<img class="box" src="Photos/Figaro Nr 2.jpg" alt="Figaro Nr 2" >
+<img class="box" src="Photos/Figaro Nr 3.jpg" alt="Figaro Nr 3" >
+<img class="box" src="Photos/Figaro Nr 4.jpg" alt="Figaro Nr 4" >
+<img class="box" src="Photos/Figaro Nr 5.jpg" alt="Figaro Nr 5" >
+<img class="box" src="Photos/AAAA.png" alt="AAAA" >
+<img class="box" src="Photos/Figaro Nr 6.jpg" alt="Figaro Nr 6" >
+<img class="box" src="Photos/Figaro Nr 7.jpeg" alt="Figaro Nr 7" >
+<img class="box" src="Photos/Figaro Nr 8.jpeg" alt="Figaro Nr 8" >
+<img class="box" src="Photos/Figaro Nr 9.jpeg" alt="Figaro Nr 9" >
+<img class="box" src="Photos/Figaro Nr 10.jpeg" alt="Figaro Nr 10" >
 <div class="container1">
 <span class="left" onclick="moveLeft()">
-<img src="Arrow PhotoL.svg" alt="Arrow PhotoL">
+<img src="Arrow PhotoL.svg" alt="Arrow PhotoL" onclick="moveLeft()">
 </span>
 <span class="right" onclick="moveRight()">
-<img src="Arrow PhotoR.svg" alt="Arrow PhotoR">
+<img src="Arrow PhotoR.svg" alt="Arrow PhotoR" onclick="moveRight()">
 </span>
 </div>
 <div class="bottom-svg">
@@ -211,7 +251,7 @@
         var boxes = document.querySelectorAll('.box');
         boxes.forEach(function(box) {
             var currentPosition = parseFloat(window.getComputedStyle(box).getPropertyValue('left'));
-            var newPosition = currentPosition - -250; // Adjust the value as you need
+            var newPosition = currentPosition - -550; // Adjust the value as you need
             box.style.left = newPosition + 'px';
         });
     }
@@ -219,7 +259,7 @@
         var boxes = document.querySelectorAll('.box');
         boxes.forEach(function(box) {
             var currentPosition = parseFloat(window.getComputedStyle(box).getPropertyValue('left'));
-            var newPosition = currentPosition - 250; // Adjust the value as you need
+            var newPosition = currentPosition - 550; // Adjust the value as you need
             box.style.left = newPosition + 'px';
         });
     }

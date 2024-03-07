@@ -59,7 +59,7 @@ transition: opacity .9s;
     }
     .square {
      position:relative;
-     height: 101%;
+     height: 101%; /* make bigger if articles gets to close */
      width: 2%;
      left:5%;
      background-color: #3b3b69;
@@ -67,13 +67,21 @@ transition: opacity .9s;
      justify-content: end;
     }
   .circle {
-    margin-left: 30%;
-    margin-right: -50%;
+    left:30%;
     height: 60px;
     width: 60px;
-    background-color: #1B1B28;
+    background-color: #ECB236;
     border-radius: 50%;
-    border: 10px solid #3b3b69;
+    border: 10px solid #1B1B28;
+    position:relative;
+    }
+  .circle_t {
+     position:absolute;
+     left:200%;
+     font-size: calc(1.5vw + 1.5vh);
+     font-family: 'Montserrat', sans-serif;
+     color:#ECB236;
+     min-width:1200px;
     }
 </style>
 </head>
@@ -85,10 +93,21 @@ transition: opacity .9s;
   <div class="blue-section-text">Figaro News</div>
 </div>
 <div class="square">
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
+  <div class="circle">
+  <div class="circle_t"><b>error</b><br></div>
+  </div>
+  <div class="circle">
+  <div class="circle_t" ><font size="+4"><b>Figaro's Chocolate Snack Leads to Emergency Vet Visit</b></font><br>Figaro, a curious dog, stirred up trouble when he indulged in a 70g dark 85% chocolate bar on [Insert Date]. His owners rushed him to the vet where he received urgent medical attention. After a turbulent night, Figaro made a full recovery, highlighting the dangers of chocolate for dogs.</div>
+  </div>
+  <!-- New News copy from here -->
+  <div class="circle">
+  <div class="circle_t"><font size="+4"><b>News</b></font><br>text here</div>
+  </div>
+  <!-- to here -->
+  <div class="circle">
+  <div class="circle_t"><b>News</b><br>text here</div>
+  </div>
+
 </div>
 <div class="bottom-svg">
   <img src="Group 1.svg" alt="Group 1 SVG">
