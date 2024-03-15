@@ -161,7 +161,7 @@ html {
       font-style:normal;
       font-weight:500;
       font-size: calc(1.3vw + 1.3vh);
-      color:#d62828; /* If Normal #ecb236 If Bad #d62828 */
+      color:#ecb236; /* If Normal #ecb236 If Bad #d62828 */
 }
      .container2 .container2-buttom2{
       position:relative;
@@ -216,7 +216,70 @@ html {
       opacity:0%;
       transition: opacity 0.5s;
 }
+        #music_container {
+            position:absolute;
+            width: 250px;
+            height: 250px;
+            border: 10px solid #0e0e14;
+            border-radius: 50%;
+            background-color: #1B1B28;
 
+        }
+        #music_container2 {
+            border-radius: 2%;
+            position:absolute;
+            width: 20%;
+            height: 69%;
+            top:14%;
+            left:20%;
+            padding:20px;
+            border: 5px solid #1B1B28;
+            background-color: #212130;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow:0px 10px 10px 0px rgba(0,0,0,0.25);
+        }
+        #music_cube {
+            z-index:1;
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            position: absolute;
+            top: calc(50% - 165px); /* Adjusted initial position */
+            left: calc(50% - 25.5px); /* Adjusted initial position */
+            border-radius: 50%;
+            border: 6px solid #BC8B24;
+            background-color: #ECB236;
+            cursor: url("pointer.svg"), auto
+        }
+                #music_circle {
+            z-index:1;
+            width: 20%;
+            height: 20%;
+            background-color: red;
+            position: absolute;
+            top: calc(50% - 30px); /* Adjusted initial position */
+            left: calc(50% - 29px); /* Adjusted initial position */
+            border-radius: 50%;
+            border: 4px solid #0D0E21;
+            background-color: #1B1D3E;
+        }
+        #music_stick {
+            width: 20px;
+            height: 160px;
+            background-color: #0D0E21;
+            position: relative;
+            left: calc(50% - 10px);
+            top: calc(50% - 160px); /* Adjusted initial position */
+            transform-origin: bottom center;
+            border-radius: 2%;
+        }
+        #music_container2 img {
+        position: relative;
+        top:67%;
+        height:35%;
+        }
     }
 
   </style>
@@ -232,6 +295,14 @@ html {
    <img src="Property 1=Default2.svg" onclick="myFunction()"/>
   </span>
 </div>
+<audio id="audio" src="OnlyYou.wav"></audio>
+<div id="music_container2">
+  <img src="Speaker.svg">
+<div id="music_container">
+  <div id="music_cube"></div>
+  <div id="music_stick"></div>
+  <div id="music_circle"></div>
+</div>
 </div>
 <div class="container-info" id="demo">
   <img src="close.svg" alt="close"  onclick="myFunction2()" id="close">
@@ -240,7 +311,7 @@ html {
 <div class="container2" id="ExDemo">
   <div class="container2-text">News</div>
   <img src="Photos/Figaro Nr 1.jpg" alt="Figaro Strand" width="100%">
-  <div class="container2-buttom">He pooped on the floor </div>
+  <div class="container2-buttom">He got new hair cut </div>
   <div class="container2-buttom2" onclick="transitionToPage('News.html')"><u>View More</u></div>
 </div>
 </div>
@@ -260,8 +331,6 @@ html {
       document.getElementById("text").style.opacity = "1.0";
       }, 200);
   }
-</script>
-<script>
   function myFunction2() {
       document.getElementById("demo").style.padding = "0px 25px 0% 0px";
       document.getElementById("close").style.opacity = "0.0";
@@ -270,9 +339,7 @@ html {
           document.getElementById("demo").style.visibility = "hidden";
       }, 670);
   }
-</script>
-<script>
-  window.transitionToPage = function(href) {
+    window.transitionToPage = function(href) {
   document.querySelector('body').style.opacity = 0
   setTimeout(function() {
   window.location.href = href
@@ -282,6 +349,100 @@ html {
   document.addEventListener('DOMContentLoaded', function(event) {
   document.querySelector('body').style.opacity = 1
   })
+</script>
+<script>
+  const cube = document.getElementById('music_cube');
+  const stick = document.getElementById('music_stick');
+  const container = document.getElementById('music_container');
+  const audio = document.getElementById('audio'); // Reference to audio element
+  const radius = 150; // radius of the circular path
+  const centerX = container.offsetWidth / 2.1;
+  const centerY = container.offsetHeight / 2;
+  const numPoints = 100; // number of points in the circle
+  const path = [];
+  let prevX = 0;
+  let prevY = 0;
+
+  // Generate points along the circular path
+  for (let i = 0; i < numPoints; i++) {
+      const angle = (i / numPoints) * 2 * Math.PI;
+      const x = centerX + radius * Math.cos(angle);
+      const y = centerY + radius * Math.sin(angle);
+      path.push({ x, y });
+  }
+
+  let isDragging = false;
+  const stickRotationOffset = -90; // Adjust rotation offset here
+
+function moveCube(event) {
+    if (isDragging) {
+        const { x, y } = container.getBoundingClientRect();
+        const mouseX = event.clientX - x;
+        const mouseY = event.clientY - y;
+        const nearestPoint = findNearestPoint(mouseX, mouseY);
+        cube.style.left = path[nearestPoint].x - cube.offsetWidth / 2 + 'px';
+        cube.style.top = path[nearestPoint].y - cube.offsetHeight / 2 + 'px';
+
+        // Rotate stick
+        const dx = centerX - path[nearestPoint].x;
+        const dy = centerY - path[nearestPoint].y;
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI) + stickRotationOffset;
+        stick.style.transform = `rotate(${angle}deg)`;
+
+        // Calculate speed
+        let speed = Math.sqrt((mouseX - prevX) ** 2 + (mouseY - prevY) ** 2);
+
+        // Adjust this threshold value according to your requirement
+        const thresholdSpeed = 2; // Adjust threshold speed as needed
+
+        // Check if speed is above the threshold to play audio
+        if (speed >= thresholdSpeed) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+
+        // Update previous position
+        prevX = mouseX;
+        prevY = mouseY;
+    } else {
+        // Stop audio when not dragging
+        audio.pause();
+    }
+}
+
+
+  function findNearestPoint(x, y) {
+      let minDistance = Infinity;
+      let nearestPointIndex = 0;
+
+      path.forEach((point, index) => {
+          const distance = Math.sqrt((point.x - x) ** 2 + (point.y - y) ** 2);
+          if (distance < minDistance) {
+              minDistance = distance;
+              nearestPointIndex = index;
+          }
+      });
+
+      return nearestPointIndex;
+  }
+
+  cube.addEventListener('mousedown', () => {
+      isDragging = true;
+  });
+
+  document.addEventListener('mousemove', moveCube);
+
+  document.addEventListener('mouseup', () => {
+      isDragging = false;
+  });
+
+  // Initial rotation of the stick
+  const dx = centerX - parseFloat(cube.style.left) - 25; // adjust for cube's width
+  const dy = centerY - parseFloat(cube.style.top) - 25; // adjust for cube's height
+  const initialAngle = Math.atan2(dy, dx) * (180 / Math.PI) + stickRotationOffset;
+  stick.style.transform = `rotate(${initialAngle}deg)`;
+
 </script>
 </body>
 </html>
