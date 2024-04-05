@@ -218,8 +218,8 @@ html {
 }
         #music_container {
             position:absolute;
-            width: 250px;
-            height: 250px;
+            width:  75%;
+            height: 50%;
             border: 10px solid #0e0e14;
             border-radius: 50%;
             background-color: #1B1B28;
@@ -374,6 +374,7 @@ html {
   let isDragging = false;
   const stickRotationOffset = -90; // Adjust rotation offset here
 
+
 function moveCube(event) {
     if (isDragging) {
         const { x, y } = container.getBoundingClientRect();
@@ -389,14 +390,8 @@ function moveCube(event) {
         const angle = Math.atan2(dy, dx) * (180 / Math.PI) + stickRotationOffset;
         stick.style.transform = `rotate(${angle}deg)`;
 
-        // Calculate speed
-        let speed = Math.sqrt((mouseX - prevX) ** 2 + (mouseY - prevY) ** 2);
 
-        // Adjust this threshold value according to your requirement
-        const thresholdSpeed = 2; // Adjust threshold speed as needed
-
-        // Check if speed is above the threshold to play audio
-        if (speed >= thresholdSpeed) {
+        if (isDragging = true) {
             audio.play();
         } else {
             audio.pause();
@@ -410,7 +405,6 @@ function moveCube(event) {
         audio.pause();
     }
 }
-
 
   function findNearestPoint(x, y) {
       let minDistance = Infinity;
@@ -436,6 +430,7 @@ function moveCube(event) {
   document.addEventListener('mouseup', () => {
       isDragging = false;
   });
+
 
   // Initial rotation of the stick
   const dx = centerX - parseFloat(cube.style.left) - 25; // adjust for cube's width
